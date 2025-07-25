@@ -406,7 +406,8 @@ local function piper(url, mode, proxy, hls)
     local audiourl = ''
     local audiocmd = ''
 	local args = {'yt-dlp', '-f', 'ba', '-g', url}
-    local quality = '-f bv[height^>=?1080][vcodec*=?avc1]'
+    --local quality = '-f bv[height^>=?1080][vcodec*=?avc1]' --hpa_log sửa thành dòng dưới để xem được VLXX
+    local quality = '-f bv*+ba/b'
     local mpvcmd =''
     local ytdlcmd = ''
     --print(dump(args))
@@ -648,4 +649,3 @@ mp.add_hook("on_load", 1, function()
         hook_count = hook_count + 1
     end
 end)
-
